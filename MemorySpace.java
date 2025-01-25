@@ -122,12 +122,10 @@ public class MemorySpace {
 		int tmpaddress, tmplength;
 		while (curr != null && curr.next != null) {
 			if (curr.block.baseAddress + curr.block.length == right.block.baseAddress) {
-				System.out.println(c+": stitching: "+curr+ " and "+right+" ---------- "+toString());
 				tmpaddress = right.block.baseAddress;
 				tmplength = right.block.length;
 				freeList.remove(right);
 				curr.block.length += tmplength;
-				System.out.println(c+": stitching done: ---------- "+toString());
 				c++;
 				right = curr;
 			}
